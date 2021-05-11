@@ -54,7 +54,7 @@ namespace Dynamic_form_api
 
 
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCors("ExposeResponseHeaders");
 

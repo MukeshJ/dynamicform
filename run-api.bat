@@ -1,2 +1,2 @@
 cd "dynamic-form-api"
-dotnet build & dotnet run --urls=https://localhost:44387/
+dotnet build & dotnet run --urls=http://localhost:44387/
