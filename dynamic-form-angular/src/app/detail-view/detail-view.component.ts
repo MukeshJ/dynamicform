@@ -49,7 +49,7 @@ export class DetailViewComponent implements OnInit {
           id: property.id,
           label: property.label,
           order: property.id,
-          value: property.value ? "1" : "0",
+          value: property.value,
           checked: property.value ? true : false
         }),
         )

@@ -17,14 +17,8 @@ export class PropertyControlService {
       if (propery.controlType === "dropdown") {
         group[propery.id] = propery.required ? new FormControl(propery.value || '', Validators.required)
           : new FormControl(propery.value || '');
-
-        // group[propery.id] = propery.required ? new FormControl(propery.unitvalue || false, Validators.required)
-        //   : new FormControl(propery.unitvalue  || '');
       }
-      if (propery.controlType === "checkbox") {
-        group[propery.id] = propery.required ? new FormControl(propery.value === 'true' ? true : false || false, Validators.required)
-          : new FormControl(propery.value === 'true' ? true : false || false);
-      } else {
+     else {
         group[propery.id] = propery.required ? new FormControl(propery.value || '', Validators.required)
           : new FormControl(propery.value || '');
       }

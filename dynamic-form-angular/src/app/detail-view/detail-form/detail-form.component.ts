@@ -60,6 +60,7 @@ export class DetailFormComponent implements OnInit, OnChanges {
         }
       })
     }
+    console.log("Selected Property", this.selectProperty)
     const unsubscribe$ = this.appService.addProperties(this.selectProperty)
       .subscribe(c => {
         alert("Property Updated");
