@@ -26,9 +26,6 @@ export class DetailFormComponent implements OnInit, OnChanges {
     private appService: AppService) { }
 
   ngOnInit() {
-    // if (this.properties.length > 0) {
-    //   this.form =  this.cloneService.deepClone<FormGroup>(this.qcs.toFormGroup(this.properties));
-    // }
 
   }
   ngOnChanges(changes: SimpleChanges) {
@@ -60,7 +57,6 @@ export class DetailFormComponent implements OnInit, OnChanges {
         }
       })
     }
-    console.log("Selected Property", this.selectProperty)
     const unsubscribe$ = this.appService.addProperties(this.selectProperty)
       .subscribe(c => {
         alert("Property Updated");

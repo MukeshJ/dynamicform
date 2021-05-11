@@ -28,8 +28,10 @@ export class DetailViewComponent implements OnInit {
   ngOnInit(): void {
     const unsub$ = this.appService.parentObject$.subscribe(c => {
       if (c) {
-        this.parentObject = c;
-        this.selectProperty = this.parentObject.datas[0];
+        this.parentObject = this.cloneService.deepClone<ParentObject>(c);
+        if(!this.selectProperty){
+          this.selectProperty = this.cloneService.deepClone<PropertiesObject>( this.parentObject.datas[0]);
+        }
         this.buldPropertyBaseArray();
       }
     });
