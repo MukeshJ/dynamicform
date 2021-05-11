@@ -1,0 +1,34 @@
+<div [formGroup]="form" class="row form-group mt-2">
+  <div class="col-sm-6">
+    <label [attr.for]="property.id">{{property.label}}</label>
+  </div>
+
+  <div class="col-sm-6" [ngSwitch]="property.controlType">
+    <input *ngSwitchCase="'textbox'" class="form-control" [formControlName]="property.id" [id]="property.id"
+      [type]="property.type">
+    <ng-container *ngSwitchCase="'dropdown'">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="input-group mb-3">
+            <input class="form-control" [formControlName]="property.id" [id]="property.id" [type]="property.unitType">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2">{{property.unitvalue}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-sm-6">
+          <mat-select *ngSwitchCase="'dropdown'" appearance="fill" [formControlName]="property.unitId">
+            <mat-option *ngFor="let opt of property.options" [value]="opt.key">{{opt.value}}</mat-option>
+          </mat-select>
+        </div> -->
+      </div>
+    </ng-container>
+
+    <mat-checkbox *ngSwitchCase="'checkbox'" [formControlName]="property.id"></mat-checkbox>
+
+    <input *ngSwitchCase="'numbertextbox'" class="form-control" [formControlName]="property.id" [id]="property.id"
+      [type]="property.type">
+
+  </div>
+  <div class="col-sm errorMessage" *ngIf="!isValid">{{property.label}} is required</div>
+</div>

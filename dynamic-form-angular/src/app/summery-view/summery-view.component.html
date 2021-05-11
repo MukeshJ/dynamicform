@@ -1,0 +1,16 @@
+<div *ngIf="dataSource">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container *ngFor="let propery of columnsToDisplay">
+      <ng-container *ngIf="propery !='samplingTime'" matColumnDef="{{propery}}">
+        <th mat-header-cell *matHeaderCellDef> {{propery}} </th>
+        <td mat-cell *matCellDef="let properties"> {{properties[propery]}} </td>
+      </ng-container>
+      <ng-container *ngIf="propery == 'samplingTime'" matColumnDef="{{propery}}">
+        <th mat-header-cell *matHeaderCellDef> Sampling Time </th>
+        <td mat-cell *matCellDef="let properties"> {{properties[propery] | date:'dd-MM-yyyy h:mm:ss a'}} </td>
+      </ng-container>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+  </table>
+</div>

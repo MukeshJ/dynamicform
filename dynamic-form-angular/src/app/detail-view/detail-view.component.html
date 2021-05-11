@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-3 my-5">
+    <ng-container *ngIf="parentObject && selectProperty">
+      <ul class="list-group" *ngFor="let property of parentObject.datas">
+        <li class="list-group-item" [ngClass]="{'active': property.samplingTime === selectProperty.samplingTime}"
+          (click)="onSelectItem(property)">{{property.samplingTime}}</li>
+      </ul>
+    </ng-container>
+  </div>
+  <div class="col-sm-9">
+    <app-detail-form [properties]="properties" [selectProperty]="selectProperty" ></app-detail-form>
+  </div>
+</div>

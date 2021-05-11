@@ -1,0 +1,13 @@
+<ng-container *ngIf="properties.length>0">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let property of properties" class="form-row">
+      <app-form-property [property]="property" [form]="form"></app-form-property>
+    </div>
+    <div class="form-row">
+      <button type="submit" class="btn btn-primary"  [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+  <!-- <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div> -->
+</ng-container>
